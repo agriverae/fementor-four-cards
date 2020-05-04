@@ -3,9 +3,11 @@ const concatCss = require('gulp-concat-css');
 const cssNano = require('gulp-cssnano');
 const sass = require('gulp-sass');
 
+sass.compiler = require('dart-sass');
+
 function sassTask() {
   return gulp
-    .src('./sass/*.scss')
+    .src('./sass/styles.scss')
     .pipe(sass())
     .pipe(concatCss('styles.css'))
     .pipe(gulp.dest('./css'));
